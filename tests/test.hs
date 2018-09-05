@@ -5,4 +5,5 @@ import Test.Tasty
 import Test.Tasty.LeanCheck
 
 main :: IO ()
-main = undefined
+main = do
+  putStrLn "TODO: write me"
