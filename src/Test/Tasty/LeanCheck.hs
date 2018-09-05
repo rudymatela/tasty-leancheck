@@ -1,3 +1,12 @@
+-- |
+-- Module      : Test.LeanCheck
+-- Copyright   : (c) 2018 Rudy Matela
+-- License     : 3-Clause BSD  (see the file LICENSE)
+-- Maintainer  : Rudy Matela <rudy@matela.com.br>
+--
+-- LeanCheck support for the Tasty test framework.
+--
+-- TODO: add example of use here, duplicate on README and cabal summary
 module Test.Tasty.LeanCheck
   ( testProperty
   , LeanCheckTests (..)
@@ -17,12 +26,13 @@ toTestResult :: Maybe [String] -> TestResult
 toTestResult Nothing = Ok
 toTestResult (Just ce) = Failed $ unwords ce
 
--- | Create a 'Test' for a LeanCheck 'Testable' property
+-- | Create a 'Test' for a LeanCheck 'Testable' property.
 testProperty :: Testable a => TestName -> a -> TestTree
 testProperty name prop = singleTest name $ toTestResult $ counterExample 200 prop
 -- TODO: change to the configured value
 --       to do this, maybe I'll have to wrap resultiers in the TestResult
 
+-- | Number of test cases for LeanCheck to generate.
 newtype LeanCheckTests = LeanCheckTests Int
   deriving (Show, Eq, Ord)
 
