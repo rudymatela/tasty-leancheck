@@ -16,4 +16,5 @@ newtype LeanCheckTests = LeanCheckTests Int
   deriving (Show, Eq, Ord)
 
 -- TODO: instance IsOption LeanCheckTests
+-- TODO: instance IsTest Bool ??
 
