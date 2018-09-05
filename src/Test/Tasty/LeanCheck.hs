@@ -43,7 +43,7 @@ instance IsOption LeanCheckTests where
 
 instance IsTest Results where
   testOptions = return [Option (Proxy :: Proxy LeanCheckTests)]
-  run _ results _ = do
+  run opts results _ = do
     r <- resultIO m results
     pure $ case r of
       OK n             -> testPassed $ "+++ OK, passed " ++ show n ++ " tests"
@@ -55,7 +55,7 @@ instance IsTest Results where
                                     ++ "' (after " ++ show i ++ " tests):\n"
                                     ++ joinArgs ce
     where
-    m = 200
+    LeanCheckTests m = lookupOption opts
 
 resultsIO :: Int -> Results -> [IO Result]
 resultsIO n (Results results) = zipWith torio [1..] $ take n results
