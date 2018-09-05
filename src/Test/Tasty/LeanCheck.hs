@@ -43,9 +43,8 @@ instance IsOption LeanCheckTests where
 
 instance IsTest Results where
   testOptions = return [Option (Proxy :: Proxy LeanCheckTests)]
-  run opts results _ = do
-    r <- resultIO m results
-    pure $ case r of
+  run opts results _ = resultIO m results >>= \r -> pure $
+    case r of
       OK n             -> testPassed $ "+++ OK, passed " ++ show n ++ " tests"
                                     ++ takeWhile (\_ -> n < m) " (exhausted)"
                                     ++ "."
