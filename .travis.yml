@@ -38,7 +38,7 @@ script:
 - make && make test && make haddock
 - make test-sdist
 - cabal test --ghc-option=-O0
-- stack --no-terminal --skip-ghc-check test --ghc-options=-O0
+- stack $STACKR --no-terminal --skip-ghc-check test --ghc-options=-O0
 
 matrix:
   allow_failures:
