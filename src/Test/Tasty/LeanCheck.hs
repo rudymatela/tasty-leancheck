@@ -45,14 +45,14 @@ instance IsTest Results where
   testOptions = return [Option (Proxy :: Proxy LeanCheckTests)]
   run opts results _ = resultIO m results >>= \r -> pure $
     case r of
-      OK n             -> testPassed $ "+++ OK, passed " ++ show n ++ " tests"
-                                    ++ takeWhile (\_ -> n < m) " (exhausted)"
-                                    ++ "."
-      Falsified i ce   -> testFailed $ "*** Failed! Falsifiable (after "
-                                    ++ show i ++ " tests):\n" ++ joinArgs ce
-      Exception i ce e -> testFailed $ "*** Failed! Exception '" ++ e
-                                    ++ "' (after " ++ show i ++ " tests):\n"
-                                    ++ joinArgs ce
+    OK n             -> testPassed $ "+++ OK, passed " ++ show n ++ " tests"
+                                  ++ takeWhile (\_ -> n < m) " (exhausted)"
+                                  ++ "."
+    Falsified i ce   -> testFailed $ "*** Failed! Falsifiable (after "
+                                  ++ show i ++ " tests):\n" ++ joinArgs ce
+    Exception i ce e -> testFailed $ "*** Failed! Exception '" ++ e
+                                  ++ "' (after " ++ show i ++ " tests):\n"
+                                  ++ joinArgs ce
     where
     LeanCheckTests m = lookupOption opts
 
