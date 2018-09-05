@@ -23,7 +23,7 @@ newtype LeanCheckTests = LeanCheckTests Int
 instance IsOption LeanCheckTests where
   defaultValue = LeanCheckTests 200
   parseValue = fmap LeanCheckTests . safeRead
-  optionName = return "leancheck-depth"
+  optionName = return "leancheck-tests"
   optionHelp = return "Depth to use for leancheck tests"
 
 instance IsTest Bool where
