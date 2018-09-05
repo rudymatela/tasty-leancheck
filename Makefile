@@ -54,13 +54,13 @@ legacy-test-via-cabal: # needs similarly named cabal wrappers
 	cabal clean  &&  cabal test
 
 prepare:
-	cabal update  &&  cabal install tasty leancheck
+	cabal update  &&  cabal install --only-dependencies
 
 prepare-legacy-test:
-	cabal-ghc-8.2  update  &&  cabal-ghc-8.2  install tasty leancheck
-	cabal-ghc-8.0  update  &&  cabal-ghc-8.0  install tasty leancheck
-	cabal-ghc-7.10 update  &&  cabal-ghc-7.10 install tasty leancheck
-	cabal-ghc-7.8  update  &&  cabal-ghc-7.8  install tasty leancheck
+	cabal-ghc-8.2  update  &&  cabal-ghc-8.2  install --only-dependencies
+	cabal-ghc-8.0  update  &&  cabal-ghc-8.0  install --only-dependencies
+	cabal-ghc-7.10 update  &&  cabal-ghc-7.10 install --only-dependencies
+	cabal-ghc-7.8  update  &&  cabal-ghc-7.8  install --only-dependencies
 
 hlint:
 	hlint \
