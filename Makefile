@@ -5,7 +5,8 @@
 # Maintainer:  Rudy Matela <rudy@matela.com.br>
 TESTS = \
   tests/test
-EGS =
+EGS = \
+  eg/minimal
 BENCHS =
 GHCIMPORTDIRS = src
 GHCFLAGS = -O2 $(shell grep -q "Arch Linux" /etc/lsb-release && echo -dynamic)

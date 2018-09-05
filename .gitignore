@@ -20,4 +20,5 @@ doc/*.js
 doc/*.png
 doc/*.gif
 mk/toplibs
+eg/minimal
 README.html
