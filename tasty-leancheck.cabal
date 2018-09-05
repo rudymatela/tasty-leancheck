@@ -19,6 +19,7 @@ cabal-version:       1.18
 extra-doc-files: README.md
                , TODO.md
 extra-source-files: .gitignore
+                  , eg/minimal.hs
                   , Makefile
                   , mk/depend.mk
                   , mk/haskell.mk
