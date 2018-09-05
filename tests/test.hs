@@ -10,8 +10,8 @@ main :: IO ()
 main = defaultMain tests
 
 tests :: TestTree
--- tests = testGroup "Tests (checked by LeanCheck)" [passing]
-tests = testGroup "Tests (checked by LeanCheck)" [passing,failing,erroring]
+tests = testGroup "Tests (checked by LeanCheck)" [passing]
+-- tests = testGroup "Tests (checked by LeanCheck)" [passing,failing,erroring]
 
 -- tests that pass
 passing :: TestTree
