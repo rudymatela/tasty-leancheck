@@ -10,22 +10,29 @@ import Test.Tasty.Options
 import Test.LeanCheck
 import Data.Proxy
 
+data TestResult = Ok
+                | Failed String
+
+toTestResult :: Maybe [String] -> TestResult
+toTestResult Nothing = Ok
+toTestResult (Just ce) = Failed $ unwords ce
+
 -- | Create a 'Test' for a LeanCheck 'Testable' property
 testProperty :: Testable a => TestName -> a -> TestTree
-testProperty name prop = singleTest name $ holds 100 prop
+testProperty name prop = singleTest name $ toTestResult $ counterExample 200 prop
 -- TODO: change to the configured value
+--       to do this, maybe I'll have to wrap resultiers in the TestResult
 
 newtype LeanCheckTests = LeanCheckTests Int
   deriving (Show, Eq, Ord)
 
--- TODO: instance IsOption LeanCheckTests
--- TODO: instance IsTest Bool ??
 instance IsOption LeanCheckTests where
   defaultValue = LeanCheckTests 200
   parseValue = fmap LeanCheckTests . safeRead
   optionName = return "leancheck-tests"
   optionHelp = return "Depth to use for leancheck tests"
 
-instance IsTest Bool where
+instance IsTest TestResult where
   testOptions = return [Option (Proxy :: Proxy LeanCheckTests)]
-  run opts prop callback = undefined
+  run _ Ok          _ = pure $ testPassed ""
+  run _ (Failed ce) _ = pure $ testFailed $ unlines ["*** Failure:", ce, ""]
