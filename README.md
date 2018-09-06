@@ -43,7 +43,7 @@ tests = testGroup "Test properties checked by LeanCheck"
 
 And here is the output for the above program:
 
-```haskell
+```sh
 $ ./test
 Test properties checked by LeanCheck
   sort == sort . reverse:  OK
