@@ -34,7 +34,7 @@ tests = testGroup "Test properties checked by LeanCheck"
       \list -> sort (list :: [Int]) == sort (reverse list)
   , LC.testProperty "Fermat's little theorem" $
       \x -> ((x :: Integer)^7 - x) `mod` 7 == 0
-  -- the following two properties do not hold
+  -- the following property do not hold
   , LC.testProperty "Fermat's last theorem" $
       \x y z n ->
         (n :: Integer) >= 3 LC.==> x^n + y^n /= (z^n :: Integer)
