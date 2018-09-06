@@ -63,16 +63,18 @@ Options
 
 The tasty-leancheck provider has only one option, `--leancheck-tests`:
 
-	$ ./test --leancheck-tests 10
-	Test properties checked by LeanCheck
-      sort == sort . reverse:  OK
-        +++ OK, passed 10 tests.
-      Fermat's little theorem: OK
-        +++ OK, passed 10 tests.
-      Fermat's last theorem:   OK
-        +++ OK, passed 10 tests.
+```
+$ ./test --leancheck-tests 10
+Test properties checked by LeanCheck
+  sort == sort . reverse:  OK
+    +++ OK, passed 10 tests.
+  Fermat's little theorem: OK
+    +++ OK, passed 10 tests.
+  Fermat's last theorem:   OK
+    +++ OK, passed 10 tests.
 
 All 3 tests passed (0.00s)
+```
 
 
 [Tasty's official example]: https://github.com/feuerbach/tasty#example
