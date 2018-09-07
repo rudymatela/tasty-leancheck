@@ -80,6 +80,23 @@ All 3 tests passed (0.00s)
 ```
 
 
+Further reading
+---------------
+
+* [tasty-leancheck's Haddock documentation];
+* [LeanCheck's Haddock documentation];
+* [Tasty's Haddock documentation];
+* [LeanCheck's README];
+* [Tasty's README];
+* [Tutorial on property-based testing with LeanCheck].
+
+[tasty-leancheck's Haddock documentation]: https://hackage.haskell.org/package/tasty-leancheck/docs/Test-Tasty-LeanCheck.html
+[LeanCheck's Haddock documentation]: https://hackage.haskell.org/package/leancheck/docs/Test-LeanCheck.html
+[Tasty's Haddock documentation]: https://hackage.haskell.org/package/tasty/docs/Test-Tasty.html
+[LeanCheck's README]: https://github.com/rudymatela/leancheck#readme
+[Tasty's README]: https://github.com/rudymatela/tasty#readme
+[tutorial on property-based testing with LeanCheck]: https://github.com/rudymatela/leancheck/blob/master/doc/tutorial.md
+
 [Tasty's official example]: https://github.com/feuerbach/tasty#example
 [Tasty]:     https://github.com/feuerbach/tasty
 [LeanCheck]: https://github.com/rudymatela/leancheck
