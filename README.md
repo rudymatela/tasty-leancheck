@@ -2,6 +2,9 @@ tasty-leancheck: LeanCheck support for the Tasty test framework
 ===============================================================
 
 [![tasty-leancheck's Build Status][build-status]][build-log]
+[![tasty-leancheck on Hackage][hackage-version]][tasty-leancheck-on-hackage]
+[![tasty-leancheck on Stackage LTS][stackage-lts-badge]][tasty-leancheck-on-stackage-lts]
+[![tasty-leancheck on Stackage Nightly][stackage-nightly-badge]][tasty-leancheck-on-stackage-nightly]
 
 [LeanCheck] support for the [Tasty] test framework.
 Tasty and healthy tests.
@@ -83,3 +86,8 @@ All 3 tests passed (0.00s)
 
 [build-status]: https://travis-ci.org/rudymatela/tasty-leancheck.svg?branch=master
 [build-log]:    https://travis-ci.org/rudymatela/tasty-leancheck
+[stackage-lts-badge]:                  http://stackage.org/package/tasty-leancheck/badge/lts
+[stackage-nightly-badge]:              http://stackage.org/package/tasty-leancheck/badge/nightly
+[tasty-leancheck-on-stackage]:         http://stackage.org/package/tasty-leancheck
+[tasty-leancheck-on-stackage-lts]:     http://stackage.org/lts/package/tasty-leancheck
+[tasty-leancheck-on-stackage-nightly]: http://stackage.org/nightly/package/tasty-leancheck
