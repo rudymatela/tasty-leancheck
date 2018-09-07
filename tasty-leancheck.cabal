@@ -5,8 +5,6 @@ synopsis:            LeanCheck support for the Tasty test framework.
 description:
   LeanCheck support for the Tasty test framework.
 
--- TODO: write more in the description
-
 homepage:            https://github.com/rudymatela/tasty-leancheck#readme
 license:             BSD3
 license-file:        LICENSE
