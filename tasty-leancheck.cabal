@@ -1,6 +1,6 @@
 -- Cabal file for tasty-leancheck
 name:                tasty-leancheck
-version:             0.0.0
+version:             0.0.1
 synopsis:            LeanCheck support for the Tasty test framework.
 description:
   LeanCheck support for the Tasty test framework.
@@ -46,7 +46,7 @@ source-repository head
 source-repository this
   type:           git
   location:       https://github.com/rudymatela/tasty-leancheck
-  tag:            v0.0.0
+  tag:            v0.0.1
 
 library
   exposed-modules:     Test.Tasty.LeanCheck
