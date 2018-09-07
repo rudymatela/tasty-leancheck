@@ -1,12 +1,52 @@
 -- |
--- Module      : Test.LeanCheck
+-- Module      : Test.Tasty.LeanCheck
 -- Copyright   : (c) 2018 Rudy Matela
 -- License     : 3-Clause BSD  (see the file LICENSE)
 -- Maintainer  : Rudy Matela <rudy@matela.com.br>
 --
 -- LeanCheck support for the Tasty test framework.
 --
--- TODO: add example of use here, duplicate on README and cabal summary
+-- Here's how your @test.hs@ might look like:
+--
+-- > import Test.Tasty
+-- > import Test.Tasty.LeanCheck as LC
+-- > import Data.List
+-- >
+-- > main :: IO ()
+-- > main = defaultMain tests
+-- >
+-- > tests :: TestTree
+-- > tests = testGroup "Test properties checked by LeanCheck"
+-- >   [ LC.testProperty "sort == sort . reverse" $
+-- >       \list -> sort (list :: [Int]) == sort (reverse list)
+-- >   , LC.testProperty "Fermat's little theorem" $
+-- >       \x -> ((x :: Integer)^7 - x) `mod` 7 == 0
+-- >   -- the following property do not hold
+-- >   , LC.testProperty "Fermat's last theorem" $
+-- >       \x y z n ->
+-- >         (n :: Integer) >= 3 LC.==> x^n + y^n /= (z^n :: Integer)
+-- >   ]
+--
+-- The output for the above program is:
+--
+-- > $ ./test
+-- > Test properties checked by LeanCheck
+-- >   sort == sort . reverse:  OK
+-- >     +++ OK, passed 200 tests.
+-- >   Fermat's little theorem: OK
+-- >     +++ OK, passed 200 tests.
+-- >   Fermat's last theorem:   FAIL
+-- >     *** Failed! Falsifiable (after 71 tests):
+-- >     0 0 0 3
+-- >
+-- > 1 out of 3 tests failed (0.00s)
+--
+-- Use @--leancheck-tests@ to configure the maximum number of tests for each
+-- property.
+--
+-- Please see the documentation of
+-- "Test.LeanCheck" and "Test.Tasty"
+-- for more details.
 module Test.Tasty.LeanCheck
   ( testProperty
   , LeanCheckTests (..)
@@ -28,6 +68,9 @@ data Result = OK        Int
   deriving (Eq, Show)
 
 -- | Create a 'Test' for a LeanCheck 'Testable' property.
+-- Example:
+--
+-- > LC.testProperty "sort is idempotent" $ \xs -> sort (sort xs :: [Int]) == sort xs
 testProperty :: Testable a => TestName -> a -> TestTree
 testProperty name = singleTest name . Results . results
 
