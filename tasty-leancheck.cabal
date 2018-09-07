@@ -4,6 +4,11 @@ version:             0.0.0
 synopsis:            LeanCheck support for the Tasty test framework.
 description:
   LeanCheck support for the Tasty test framework.
+  .
+  This package can be used to incorporate LeanCheck tests into Tasty test
+  suites by means of the @Test.Tasty.LeanCheck.testProperty@ function.
+  .
+  Please see the Haddock documentation and README for more details.
 
 homepage:            https://github.com/rudymatela/tasty-leancheck#readme
 license:             BSD3
