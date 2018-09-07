@@ -1,5 +1,5 @@
-tasty-leancheck: LeanCheck support for the Tasty test framework
-===============================================================
+tasty-leancheck: LeanCheck support for Tasty
+============================================
 
 [![tasty-leancheck's Build Status][build-status]][build-log]
 [![tasty-leancheck on Hackage][hackage-version]][tasty-leancheck-on-hackage]
