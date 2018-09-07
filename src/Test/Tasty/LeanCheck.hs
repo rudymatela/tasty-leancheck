@@ -45,7 +45,7 @@
 -- property.
 --
 -- Please see the documentation of
--- "Test.LeanCheck" and "Test.Tasty"
+-- "Test.LeanCheck" and Tasty
 -- for more details.
 module Test.Tasty.LeanCheck
   ( testProperty
