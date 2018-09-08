@@ -94,7 +94,7 @@ Further reading
 [LeanCheck's Haddock documentation]: https://hackage.haskell.org/package/leancheck/docs/Test-LeanCheck.html
 [Tasty's Haddock documentation]: https://hackage.haskell.org/package/tasty/docs/Test-Tasty.html
 [LeanCheck's README]: https://github.com/rudymatela/leancheck#readme
-[Tasty's README]: https://github.com/rudymatela/tasty#readme
+[Tasty's README]: https://github.com/feuerbach/tasty#readme
 [tutorial on property-based testing with LeanCheck]: https://github.com/rudymatela/leancheck/blob/master/doc/tutorial.md
 
 [Tasty's official example]: https://github.com/feuerbach/tasty#example
