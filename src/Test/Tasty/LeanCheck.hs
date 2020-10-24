@@ -60,10 +60,10 @@ import Test.LeanCheck
 import Data.Proxy
 import Control.Exception (SomeException, catch, evaluate)
 
-newtype Results = Results [([String],Bool)]
+newtype Results = Results [([String], Either String ())]
 
 data Result = OK        Int
-            | Falsified Int [String]
+            | Falsified Int [String] String
             | Exception Int [String] String
   deriving (Eq, Show)
 
@@ -72,7 +72,7 @@ data Result = OK        Int
 --
 -- > LC.testProperty "sort is idempotent" $ \xs -> sort (sort xs :: [Int]) == sort xs
 testProperty :: Testable a => TestName -> a -> TestTree
-testProperty name = singleTest name . Results . results
+testProperty name = singleTest name . Results . resultsWithErrors
 
 -- | Number of test cases for LeanCheck to generate.
 newtype LeanCheckTests = LeanCheckTests Int
@@ -91,8 +91,9 @@ instance IsTest Results where
     OK n             -> testPassed $ "+++ OK, passed " ++ show n ++ " tests"
                                   ++ takeWhile (\_ -> n < m) " (exhausted)"
                                   ++ "."
-    Falsified i ce   -> testFailed $ "*** Failed! Falsifiable (after "
-                                  ++ show i ++ " tests):\n" ++ joinArgs ce
+    Falsified i ce e -> testFailed $ "*** Failed! Falsifiable '" ++ e
+                                  ++ "' (after " ++ show i ++ " tests):\n"
+                                  ++ joinArgs ce
     Exception i ce e -> testFailed $ "*** Failed! Exception '" ++ e
                                   ++ "' (after " ++ show i ++ " tests):\n"
                                   ++ joinArgs ce
@@ -102,8 +103,8 @@ instance IsTest Results where
 resultsIO :: Int -> Results -> [IO Result]
 resultsIO n (Results results) = zipWith torio [1..] $ take n results
   where
-    tor i (_,True) = OK i
-    tor i (as,False) = Falsified i as
+    tor i (_,Right ()) = OK i
+    tor i (as,Left e) = Falsified i as e
     torio i r@(as,_) = evaluate (tor i r)
        `catch` \e -> let _ = e :: SomeException
                      in return (Exception i as (show e))
