@@ -36,10 +36,10 @@ test-sdist:
 test-via-cabal:
 	cabal configure --enable-tests --enable-benchmarks --ghc-options="$(GHCFLAGS) -O0"
 	cabal build
-	cabal test main
+	cabal test test
 
 test-via-stack:
-	stack test leancheck:test:main --ghc-options="$(GHCFLAGS) -O0" --system-ghc --no-install-ghc --no-terminal
+	stack test tasty-leancheck:test:test --ghc-options="$(GHCFLAGS) -O0" --system-ghc --no-install-ghc --no-terminal
 
 test-via-everything: test test-via-cabal test-via-stack
 
