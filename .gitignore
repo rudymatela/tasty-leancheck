@@ -22,4 +22,5 @@ doc/*.png
 doc/*.gif
 mk/toplibs
 eg/minimal
+test/test
 README.html
