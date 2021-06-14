@@ -101,8 +101,8 @@ Further reading
 [Tasty]:     https://github.com/feuerbach/tasty
 [LeanCheck]: https://github.com/rudymatela/leancheck
 
-[build-status]: https://travis-ci.org/rudymatela/tasty-leancheck.svg?branch=master
-[build-log]:    https://travis-ci.org/rudymatela/tasty-leancheck
+[build-log]:     https://github.com/rudymatela/tasty-leancheck/actions/workflows/build.yml
+[build-status]:  https://github.com/rudymatela/tasty-leancheck/actions/workflows/build.yml/badge.svg
 [hackage-version]: https://img.shields.io/hackage/v/tasty-leancheck.svg
 [tasty-leancheck-on-hackage]: https://hackage.haskell.org/package/tasty-leancheck
 [stackage-lts-badge]:                  http://stackage.org/package/tasty-leancheck/badge/lts
