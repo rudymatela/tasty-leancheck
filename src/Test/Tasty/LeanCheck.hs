@@ -47,6 +47,10 @@
 -- Please see the documentation of
 -- "Test.LeanCheck" and Tasty
 -- for more details.
+{-# LANGUAGE CPP #-}
+#if __GLASGOW_HASKELL__ == 708
+{-# LANGUAGE DeriveDataTypeable, StandaloneDeriving #-}
+#endif
 module Test.Tasty.LeanCheck
   ( testProperty
   , LeanCheckTests (..)
@@ -58,7 +62,15 @@ import Test.Tasty.Providers hiding (Result)
 import Test.Tasty.Options
 import Test.LeanCheck
 import Data.Proxy
+import Control.Applicative (pure)
 import Control.Exception (SomeException, catch, evaluate)
+#if __GLASGOW_HASKELL__ == 708
+import Data.Typeable (Typeable)
+
+deriving instance Typeable Results
+deriving instance Typeable Result
+deriving instance Typeable LeanCheckTests
+#endif
 
 newtype Results = Results [([String],Bool)]
 
