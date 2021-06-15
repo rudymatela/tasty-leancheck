@@ -105,8 +105,8 @@ Further reading
 [build-status]:  https://github.com/rudymatela/tasty-leancheck/actions/workflows/build.yml/badge.svg
 [hackage-version]: https://img.shields.io/hackage/v/tasty-leancheck.svg
 [tasty-leancheck-on-hackage]: https://hackage.haskell.org/package/tasty-leancheck
-[stackage-lts-badge]:                  http://stackage.org/package/tasty-leancheck/badge/lts
-[stackage-nightly-badge]:              http://stackage.org/package/tasty-leancheck/badge/nightly
-[tasty-leancheck-on-stackage]:         http://stackage.org/package/tasty-leancheck
-[tasty-leancheck-on-stackage-lts]:     http://stackage.org/lts/package/tasty-leancheck
-[tasty-leancheck-on-stackage-nightly]: http://stackage.org/nightly/package/tasty-leancheck
+[stackage-lts-badge]:                  https://stackage.org/package/tasty-leancheck/badge/lts
+[stackage-nightly-badge]:              https://stackage.org/package/tasty-leancheck/badge/nightly
+[tasty-leancheck-on-stackage]:         https://stackage.org/package/tasty-leancheck
+[tasty-leancheck-on-stackage-lts]:     https://stackage.org/lts/package/tasty-leancheck
+[tasty-leancheck-on-stackage-nightly]: https://stackage.org/nightly/package/tasty-leancheck
