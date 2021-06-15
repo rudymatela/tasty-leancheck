@@ -6,7 +6,7 @@ description:
   LeanCheck support for the Tasty test framework.
   .
   This package can be used to incorporate LeanCheck tests into Tasty test
-  suites by means of the @Test.Tasty.LeanCheck.testProperty@ function.
+  suites.
   .
   Please see the Haddock documentation and README for more details.
 
@@ -34,10 +34,15 @@ extra-source-files: .gitignore
                   , stack.yaml
                   , test/sdist
                   , .github/workflows/build.yml
-tested-with: GHC==8.4
+tested-with: GHC==9.0
+           , GHC==8.10
+           , GHC==8.8
+           , GHC==8.6
+           , GHC==8.4
            , GHC==8.2
            , GHC==8.0
            , GHC==7.10
+           , GHC==7.8
 
 
 source-repository head
