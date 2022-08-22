@@ -9,9 +9,12 @@ EGS = \
   eg/minimal
 BENCHS =
 GHCIMPORTDIRS = src
-GHCFLAGS = -O2 $(shell grep -q "Arch Linux" /etc/lsb-release && echo -dynamic)
+GHCFLAGS = -v0 -O2 $(shell grep -q "Arch Linux" /etc/lsb-release && echo -dynamic -package tasty)
 HADDOCKFLAGS = \
-  $(shell grep -q "Arch Linux" /etc/lsb-release && echo --optghc=-dynamic)
+  $(shell grep -q "Arch Linux" /etc/lsb-release \
+       && echo '--optghc=-dynamic' \
+               '--optghc="-package tasty"' \
+               '--optghc="-package leancheck"')
 
 all: mk/toplibs
 
