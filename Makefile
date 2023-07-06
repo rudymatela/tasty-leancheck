@@ -15,6 +15,7 @@ HADDOCKFLAGS = \
        && echo '--optghc=-dynamic' \
                '--optghc="-package tasty"' \
                '--optghc="-package leancheck"')
+INSTALL_DEPS = tasty leancheck
 
 all: mk/toplibs
 
