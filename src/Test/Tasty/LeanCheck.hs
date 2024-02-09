@@ -72,7 +72,7 @@ deriving instance Typeable Result
 deriving instance Typeable LeanCheckTests
 #endif
 
-newtype Results = Results [([String],Bool)]
+newtype Results  =  Results [([String],Bool)]
 
 data Result = OK        Int
             | Falsified Int [String]
